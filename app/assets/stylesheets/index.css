@@ -1,0 +1,95 @@
+.row{
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.choose.row{
+    margin-top: -85px !important;
+   
+}
+
+.row2{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.container{
+    
+    background-size: cover;
+    margin:0 auto;
+    
+}
+
+body{
+    background-color: #edfafd;
+}
+
+.page{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+}
+
+.intro{
+    text-align: center;
+   
+}
+
+#insert_form{
+    align-items:center;
+    justify-content: center;
+    text-align: left;
+    width: 650px;
+    margin-left: 225px;
+}
+
+.sign_up{
+    font-size: 12px;
+    width:800px;
+    align-items:center;
+}
+
+label{
+    margin-bottom: 0px !important;
+}
+
+.cancel{
+    font-size: 15px;
+    justify-content: center;
+}
+
+.cancel:hover{
+    color:  #ffb6b9;
+}
+
+.typech{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 50px;
+    margin-bottom: 0px !important;
+    
+}
+
+.interval{
+    margin-top: 12px;
+    margin-right:99px;
+}
+
+.congra2{
+    margin-top:20px !important;
+}
+
+.search_array{
+    float:right;
+    margin-right: 90px;
+    margin-top: 0px;
+}
+
+.side_nav{
+    margin-left: 40px;
+}

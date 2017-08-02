@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+                <head>
+                        <style>
+                        body {
+                            font-family: "Lato", sans-serif;
+                        }
+                        
+                        .sidenav {
+                            height: 100%;
+                            width: 0;
+                            position: fixed;
+                            z-index: 1;
+                            top: 0;
+                            left: 0;
+                            background-color: #111;
+                            overflow-x: hidden;
+                            transition: 0.5s;
+                            padding-top: 60px;
+                        }
+                        
+                        .sidenav a {
+                            padding: 8px 8px 8px 32px;
+                            text-decoration: none;
+                            font-size: 20px;
+                            color: #818181;
+                            display: block;
+                            transition: 0.3s;
+                        }
+                        
+                        .sidenav a:hover, .offcanvas a:focus{
+                            color: #f1f1f1;
+                        }
+                        
+                        .sidenav .closebtn {
+                            position: absolute;
+                            top: 0;
+                            right: 25px;
+                            font-size: 36px;
+                            margin-left: 50px;
+                        }
+                        
+                        @media screen and (max-height: 450px) {
+                          .sidenav {padding-top: 15px;}
+                          .sidenav a {font-size: 18px;}
+                        }
+                        </style>
+                </head>
+                <body>
+                        <div id="mySidenav" class="sidenav">
+                          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                          <a href="/home/request_user">견적 요청</a>
+                          <a href="/review/list">후기 Talk</a>
+                          <a href="/home/hairshop">Hairshop</a>
+                          <a href="/home/mypage_user">마이페이지</a>
+                        </div>
+                        
+                        <span style="font-size:60px;cursor:pointer" class="side_nav" onclick="openNav()">&#9776;</span>
+                        
+                        <script>
+                        function openNav() {
+                            document.getElementById("mySidenav").style.width = "250px";
+                        }
+                        
+                        function closeNav() {
+                            document.getElementById("mySidenav").style.width = "0";
+                        }
+                        </script>
+                </body>
+</html>
+
+                     <section class="intro">
+        				<p class="joinus">Service</p>
+        				<p class="congra2">원하시는 서비스를 선택해주세요.</p>
+        				<img src='/assets/key-tool.png'>
+        				<br>
+        			 </section>
+        			 
+        		<div style="text-align:center"; font-size:"50px";>
+        		  <a href= "/home/request_user"><img src='/assets/request.png' width="200px" height="200px" /></a>
+        		  <a href= "/review/list"><img src='/assets/review.png' width="200px" height="200px" /></a>
+        		  <a href= "/home/hairshop"><img src='/assets/shop.png' width="200px" height="200px" /></a>
+        		  <a href= "/home/mypage_user"><img src='/assets/mypag.png' width="200px" height="200px" /></a>
+        		  
+        			 
+        <div class="container">	
+            <div class="top_button">
+                <% if session[:email] != nil%>
+                <br><br><a href="/home/mypage_user"><img src="/assets/mypage_blue.png"></a>
+                <a href="/logout"><img src=/assets/logout.png></a>
+                <% else %>
+                <br>
+                로그인해주세요
+                <% end %>
+            </div>
+            
+        </div>

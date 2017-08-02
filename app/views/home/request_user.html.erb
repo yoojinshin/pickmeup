@@ -1,0 +1,76 @@
+<!--견적요청(고객입장) - bootstrap 4 이용-->
+
+<!--이전 시술 경험(단일 선택=>radio button)-->
+
+<h3>이전 시술 경험 (1년 이내)</h3><br>
+
+<form action="/request_user" method="POST" enctype="multipart/form-data">
+    <label> (1)
+        <input type="radio" name="ago" value="yes">있음</input>
+        <input type="radio" name="ago" value="no">없음</input>
+    </label>
+    
+    <!--시술 종류(복수선택=>check button)-->
+
+    <label>(2) 시술 종류</label>
+    <div class="input-group">
+        <input type="checkbox" name="style_ago" value="bleach">탈색 </input>
+        <input type="text" name="detail_ago" placeholder="부가설명(횟수 등…) 최대한 자세하게 써주세용">
+    </div>
+    <div class="input-group">
+        <input type="checkbox" name="style_ago" value="color">염색 </input>
+        <input type="text" name="detail_ago" placeholder="부가설명(횟수 등…) 최대한 자세하게 써주세용">
+    </div>
+    <div class="input-group">
+        <input type="checkbox" name="style_ago" value="wave">파마 </input>
+        <input type="text" name="detail_ago" placeholder="부가설명(횟수 등…) 최대한 자세하게 써주세용">
+    </div>
+    <div class="input-group">
+        <input type="checkbox" name="style_ago" value="clinic">클리닉 </input>
+        <input type="text" name="detail_ago" placeholder="부가설명(횟수 등…) 최대한 자세하게 써주세용">
+    </div>
+    <div class="input-group">
+        <input type="checkbox" name="style_ago" value="etc">기타(헤나, 트리트먼트 등) </input>
+        <input type="text" name="detail_ago" placeholder="부가설명(횟수 등…) 최대한 자세하게 써주세용">
+    </div>
+     
+     <!--사진 등록
+     (https://hcn1519.github.io/articles/2016-02/carrierwave)-carrierwave 이용 aws s3에 이미지 올리기-->
+     
+    <h3>사진 등록</h3>
+    
+    <label>(1) 뒷모습</label>
+    <input type="file" name="back">
+    <label>(2) 앞모습</label>
+    <input type="file" name="front">
+    <label>(3) 모발 손상도</label>
+    <input type="file" name="damage">
+    
+    <!--원하는 스타일-->
+    
+    <h3>원하는 스타일</h3>
+    <label>종류</label>
+    <div class="input-group">
+        <input type="checkbox" name="style" value="bleach">탈색 </input>
+    </div>
+    <div class="input-group">
+        <input type="checkbox" name="style" value="color">염색 </input>
+        <input type="file" name="imageColor">
+    </div>
+    <div class="input-group">
+        <input type="checkbox" name="style" value="wave">파마 </input>
+        <input type="file" name="imageCurl">
+    </div>
+    <div class="input-group">
+        <input type="checkbox" name="style" value="clinic">클리닉 </input>
+    </div>
+    <div class="input-group">
+        <input type="checkbox" name="style" value="etc">기타(헤나, 트리트먼트 등) </input>
+        <input type="text" name="detail" placeholder="부가설명(횟수 등…) 최대한 자세하게 써주세용">
+    </div>
+    <!--선호 지역 선택 - 알바몬의 경우에는 java script로 되어있음-->
+    
+    <h3>선호 지역 선택 (최대 5개)</h3>
+
+    <input type="submit" value="제출">
+</form>

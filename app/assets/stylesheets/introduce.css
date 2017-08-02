@@ -1,0 +1,257 @@
+.carousel-item{
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: #fff;
+    
+}
+
+.carousel_title{
+    font-size: 9.3333333rem;
+    line-height: 1.2;
+    letter-spacing: -0.08em;
+    font-weight: 700;
+    
+}
+
+button{
+    cursor: pointer;
+    background-color: #ffb6b9 !important;
+    border-color: #fff !important;
+}
+
+button:hover{
+    background-color: #fba2a6 !important;
+}
+
+button: focus{
+    outline: none;
+}
+
+@media screen and (max-width: 576px){
+    .carousel_title{
+        font-size: 5.33333rem;
+    }
+}
+
+@media screen and (min-width: 577px) and (max-width: 992px){
+    .carousel_title{
+        font-size: 7.333333rem;
+    }
+}
+
+.carousel_text{
+    font-weight: 700;
+}
+
+a.bg:focus, 
+a.bg:hover{
+ background-color: #fba2a6 !important;
+}
+
+.bg{
+    background-color: #ffb6b9 !important;
+   
+}
+
+.bg2{
+     background-color: transparent !important;
+     border-radius: 10px;
+     margin-top: 10px;
+     margin-bottom:70px;
+     font-size: 15px;
+     
+}
+
+.bg2:hover{
+    border-color: #fba2a6 !important;
+     
+}
+
+
+#confirmEmail{
+    background-color: #ffb6b9 !important;
+    border:none;
+    border-radius: 5px;
+   margin-left:4px;
+    
+}
+
+#confirmEmail:hover{
+     background-color: #fba2a6 !important;
+}
+
+.btn{
+    border-radius: 100px;
+    color: white;
+}
+
+.carousel-item:nth-child(1){
+    background-image: linear-gradient(to bottom, rgba(0,0,0,.3)0%, rgba(0,0,0,.3)100%),url(../assets/pickme1.jpg);
+}
+
+.carousel-item:nth-child(2){
+    background-image: linear-gradient(to bottom, rgba(0,0,0,.3)0%, rgba(0,0,0,.3)100%),url(../assets/pickme2.jpg);
+}
+
+.carousel-item:nth-child(3){
+    background-image: linear-gradient(to bottom, rgba(0,0,0,.3)0%, rgba(0,0,0,.3)100%),url(../assets/hair.jpg);
+}
+
+a{
+    color: inherit;
+}
+
+a:hover{
+    color: #fff !important;
+    text-decoration: none;
+    background-color: transparent !important;
+}
+
+a:focus{
+    color:#ED9595;
+}
+
+.btn-bg{
+    background-color: #fba2a6 !important;
+}
+
+.sizeup{
+    padding:4px;
+    padding-left: 30px;
+   
+}
+
+.btn.btn-primary{
+    margin-left: 8px;
+}
+
+.section__title{
+    font-size: 5.3333333rem;
+    line-height: 1.2;
+    letter-spacing: -0.08em;
+    font-weight: 500;
+    text-align: center;
+}
+
+.section__text{
+    text-align: center;
+}
+
+
+
+.cards{
+    display: flex;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.card{
+    height: 100%;
+    width:auto;
+}
+.search{
+    display: flex;
+}
+
+.filtering{
+     display: flex;
+}
+
+.choose{
+    display: flex;
+}
+
+.userimage{
+    position: relative;
+    left: 109px;
+}
+
+.companyimage{
+     position: relative;
+     right:109px;
+}
+
+.userimage,
+.companyimage{
+    border-radius: 60px;
+}
+
+
+
+.userimage:hover{
+    opacity: 0.8
+    
+}
+
+.companyimage:hover{
+    opacity: 0.8
+}
+
+.footer{
+    text-align: center;
+    background-color: #fbfbfb
+}
+
+.copyright{
+    font-size: 0.8rem;
+    line-height: 2;
+    color: #8d8d8d;
+    margin-bottom: 0px;
+}
+
+
+#email,
+#chpass,
+#ha{margin-left:15px;
+}
+
+#user_pass{margin-left:10px;
+margin-right: 15px;
+}
+
+input.bg2{
+    color: #000;
+}
+
+input#confirmEmail{
+    color:white;
+}
+
+.intro2{
+    width: 775px;
+    margin-left: 100px;
+}
+
+p.intro2{
+    margin-bottom: 5px !important;
+}
+
+
+
+.joinus{
+    font-weight: 600;
+    font-size: 40px;
+     margin-top: 20px !important;
+}
+
+
+
+.congra{
+    letter-spacing: 1.8px;
+}
+
+.mypagedg{
+    margin: 0 auto;
+    margin-top : 80px;
+    margin-bottom: 80px;
+    text-align: center;
+    align-items:center;
+   
+}
+

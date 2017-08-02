@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <style>
+                        body {
+                            font-family: "Lato", sans-serif;
+                        }
+                        
+                        .sidenav {
+                            height: 100%;
+                            width: 0;
+                            position: fixed;
+                            z-index: 1;
+                            top: 0;
+                            left: 0;
+                            background-color: #111;
+                            overflow-x: hidden;
+                            transition: 0.5s;
+                            padding-top: 60px;
+                        }
+                        
+                        .sidenav a {
+                            padding: 8px 8px 8px 32px;
+                            text-decoration: none;
+                            font-size: 20px;
+                            color: #818181;
+                            display: block;
+                            transition: 0.3s;
+                        }
+                        
+                        .sidenav a:hover, .offcanvas a:focus{
+                            color: #f1f1f1;
+                        }
+                        
+                        .sidenav .closebtn {
+                            position: absolute;
+                            top: 0;
+                            right: 25px;
+                            font-size: 36px;
+                            margin-left: 50px;
+                        }
+                        
+                        @media screen and (max-height: 450px) {
+                          .sidenav {padding-top: 15px;}
+                          .sidenav a {font-size: 18px;}
+                        }
+                        </style>
+    
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <style>
+      .pagination {
+          display: inline-block;
+      }
+      
+      .pagination a {
+          color: black;
+          float: left;
+          padding: 8px 16px;
+          text-decoration: none;
+      }
+      
+      .pagination a.active {
+          color:#fba2a6;
+      }
+      
+      .pagination a:hover:not(.active) {background-color: #ddd;}
+  </style>
+  </head>
+                <body>
+                       <div id="mySidenav" class="sidenav">
+                          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                          <a href="/home/request_user">견적 요청</a>
+                          <a href="/review/list">후기 Talk</a>
+                          <a href="/home/hairshop">Hairshop</a>
+                          <a href="#">마이페이지</a>
+                        </div>
+                        
+                        <span style="font-size:60px;cursor:pointer" class="side_nav" onclick="openNav()">&#9776;</span>
+                        
+                        <script>
+                        function openNav() {
+                            document.getElementById("mySidenav").style.width = "250px";
+                        }
+                        
+                        function closeNav() {
+                            document.getElementById("mySidenav").style.width = "0";
+                        }
+                        </script>
+                </body>
+    
+    
+    
+    
+       <section id="registered_shops" class="section">
+          <header class="section_header">
+                 <section class="intro">
+          				<p class="joinus">Hairshops</p>
+          				<p class="congra">픽미업 등록 업체, 모아보기</p>
+          				<img src="/assets/hairshops.png">
+          				<br>
+		         </section>
+          </header>
+        </section>
+        
+       <div class="search_class"> 
+        <form action='/home/hairshop'class="search_array" method="GET">
+          <label><img src='/assets/search.png' ></label>
+          <input type="text" name="search" class="sizeup">
+          <input type="submit" value="검색" class="btn bg">
+        </form>
+       </div>
+       
+    
+         <!--필터링 드롭다운-->
+      <br>
+      <br>          
+      <br>              
+      <div class="container">       
+              <div class="cards">
+                <div class="col-4">
+                             <div class="card">
+                              <img class="card-img-top" src="...">
+                              <div class="card-block">
+                                <h4 class="card-title">미용실 이름</h4>
+                                <p class="card-text">한줄 소개</p>
+                                <a href="#" class="btn bg px-4 py-3">자세히 보기</a>
+                              </div>
+                            </div>
+                </div>
+                 <div class="col-4">
+                             <div class="card">
+                              <img class="card-img-top" src="...">
+                              <div class="card-block">
+                                <h4 class="card-title">미용실 이름</h4>
+                                <p class="card-text">한줄 소개</p>
+                                <a href="#" class="btn bg px-4 py-3">자세히 보기</a>
+                              </div>
+                            </div>
+                </div> 
+                <div class="col-4">
+                             <div class="card">
+                              <img class="card-img-top" src="...">
+                              <div class="card-block">
+                                <h4 class="card-title">미용실 이름</h4>
+                                <p class="card-text">한줄 소개</p>
+                                <a href="#" class="btn bg px-4 py-3">자세히 보기</a>
+                              </div>
+                            </div>
+                </div>
+            </div>
+            <div class="cards">
+               <div class="col-4">
+                             <div class="card">
+                              <img class="card-img-top" src="...">
+                              <div class="card-block">
+                                <h4 class="card-title">미용실 이름</h4>
+                                <p class="card-text">한줄 소개</p>
+                                <a href="#" class="btn bg px-4 py-3">자세히 보기</a>
+                              </div>
+                            </div>
+                </div>
+                 <div class="col-4">
+                             <div class="card">
+                              <img class="card-img-top" src="...">
+                              <div class="card-block">
+                                <h4 class="card-title">미용실 이름</h4>
+                                <p class="card-text">한줄 소개</p>
+                                <a href="#" class="btn bg px-4 py-3">자세히 보기</a>
+                              </div>
+                            </div>
+                </div>
+                 <div class="col-4">
+                             <div class="card">
+                              <img class="card-img-top" src="...">
+                              <div class="card-block">
+                                <h4 class="card-title">미용실 이름</h4>
+                                <p class="card-text">한줄 소개</p>
+                                <a href="#" class="btn bg px-4 py-3">자세히 보기</a>
+                              </div>
+                            </div>
+                </div>
+            </div>
+      </div>
+          <div class="page">
+              <div class="pagination">
+                  <a href="#">&laquo;</a>
+                  <a href="#">1</a>
+                  <a class="active" href="#">2</a>
+                  <a href="#">3</a>
+                  <a href="#">4</a>
+                  <a href="#">5</a>
+                  <a href="#">6</a>
+                  <a href="#">&raquo;</a>
+              </div>
+          </div>  
+          <footer class="footer">
+            <div class="pickmeup_logo">
+              <img src="#" alt="">
+              <p class="explain">
+                여기에는 픽미업과 관련한 기본 정보 등을 담을 예정입니당
+              </p>
+              <p class="copyright">&copy;2017 Pickmeup. All Rights Reserved.</p>
+            </div>
+        </footer>
+         
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </body>
+</html>

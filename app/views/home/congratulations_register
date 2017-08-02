@@ -1,0 +1,85 @@
+<html>
+                <head>
+                        <style>
+                        body {
+                            font-family: "Lato", sans-serif;
+                        }
+                        
+                        .sidenav {
+                            height: 100%;
+                            width: 0;
+                            position: fixed;
+                            z-index: 1;
+                            top: 0;
+                            left: 0;
+                            background-color: #111;
+                            overflow-x: hidden;
+                            transition: 0.5s;
+                            padding-top: 60px;
+                        }
+                        
+                        .sidenav a {
+                            padding: 8px 8px 8px 32px;
+                            text-decoration: none;
+                            font-size: 20px;
+                            color: #818181;
+                            display: block;
+                            transition: 0.3s;
+                        }
+                        
+                        .sidenav a:hover, .offcanvas a:focus{
+                            color: #f1f1f1;
+                        }
+                        
+                        .sidenav .closebtn {
+                            position: absolute;
+                            top: 0;
+                            right: 25px;
+                            font-size: 36px;
+                            margin-left: 50px;
+                        }
+                        
+                        @media screen and (max-height: 450px) {
+                          .sidenav {padding-top: 15px;}
+                          .sidenav a {font-size: 18px;}
+                        }
+                        </style>
+                </head>
+                <body>
+                        <div id="mySidenav" class="sidenav">
+                          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                          <a href="/home/request_user">견적 요청</a>
+                          <a href="/review/list">후기 Talk</a>
+                          <a href="/home/hairshop">Hairshop</a>
+                          <a href="#">마이페이지</a>
+                        </div>
+                        
+                        <span style="font-size:60px;cursor:pointer" class="side_nav" onclick="openNav()">&#9776;</span>
+                        
+                        <script>
+                        function openNav() {
+                            document.getElementById("mySidenav").style.width = "250px";
+                        }
+                        
+                        function closeNav() {
+                            document.getElementById("mySidenav").style.width = "0";
+                        }
+                        </script>
+                </body>
+                <section class="intro">
+          				<p class="joinus">Congratulations!</p>
+          				<p class="congra">회원가입을 축하드립니다.</p>
+          				<img src="/assets/check.png">
+          				<br>
+		         </section>
+	</html> 
+	
+	    <footer class="footer">
+              <div class="pickmeup_logo">
+                <img src="#" alt="">
+                <p class="explain">
+                  여기에는 픽미업과 관련한 기본 정보 등을 담을 예정입니당
+                </p>
+                <p class="copyright">&copy;2017 Pickmeup. All Rights Reserved.</p>
+              </div>
+       </footer>
