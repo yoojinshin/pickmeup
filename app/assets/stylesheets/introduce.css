@@ -42,7 +42,7 @@ button:hover{
     background-color: #fba2a6 !important;
 }
 
-button: focus{
+button:focus{
     outline: none;
 }
 
