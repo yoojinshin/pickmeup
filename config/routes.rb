@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  
   resources :posts
   root 'home#introduce'
   
@@ -12,65 +11,104 @@ Rails.application.routes.draw do
 
   get 'home/basic_company'
   
-# 회원가입 첫페이지
+  get '/home/logout' => 'home#logout'
   
-  get 'home/register_intro'
-  
-  get 'home/register_user' => 'home#register_user'
-  
-  get 'home/register_company' => 'home#register_company'
-  
-# 회원가입 페이지(고객)
+  get 'home/request_confirm_user' => 'home#request_confirm_user'
 
-  get 'home/register_user'
-  
   post '/register_user' => 'home#register_user'
   
   get 'home/index' => 'home#index'
   
-# 회원가입 페이지(업체)
-  get 'home/register_company'
-  
-  post '/register_company' => 'home#register_company'
-  
   get 'home/congratulations_register'
+  
 # 견적요청 페이지(고객)
   get 'home/request_user'
+  
+  get 'home/request_user' => 'home#request_user'
  
-  post '/request_user' => 'home#request_user'
+  post '/estimate_user' => 'home#estimate_user'
   
   get 'home/basic_user' => 'home#basic_user'
   
-# 견적요청 확인 페이지(업체)
-  get 'home/request_company'
+# 견적요청 확인페이지(고객)
+  get 'home/request_confirm_user'
   
-  post '/request_company' => 'home#request_company'
+  get 'home/show_confirm'
+  
+  get 'home/show_response/:id' => 'home#show_response'
+  
+  post 'home/destroy/:id' => 'home#destroy'
+  
+# 견적요청 확인 페이지(업체)
+  get 'home/request_confirm_company'
+  
+  get 'home/request_confirm_company' => 'home#request_confirm_company'
 
   get 'home/basic_company' => 'home#basic_company'
+  
+# 견적내주는 페이지(업체)
+  get 'home/request_company'
+  
+  get 'home/request_company/:id' => 'home#request_company'
+  
+  get 'home/estimate_company'
 
+  post 'home/estimate_company/:id' => 'home#estimate_company'
+  
+  # 예약을 위한 페이지
+  get 'home/reserve_user'
+  
+  get 'home/reserve_user/:id' => 'home#reserve_user'
+  
+  get 'home/reserve_company'
+  
+  post 'home/reserve_apply' => 'home#reserve_apply'
+  
 # 리뷰게시판
+  # review
+  ## list
   get '/review/list'
+  
+  ## create
   post '/review/create' => 'review#create'
+ 
+  ## show
+  get '/review/show/:id' => 'review#show'
   
-  get '/review/show/:review_id' => 'review#show'
-  get '/review/edit/:review_id' => 'review#edit'
-  post '/review/update/:review_id' => 'review#update'
-  post '/reveiw/destroy/:review_id' => 'review#destroy'
+  ## edit
+  get '/review/edit/:id' => 'review#edit'
   
+  ## update
+  post '/review/update/:id' => 'review#update'
   
+  ## destroy
+  post '/review/destroy/:id' => 'review#destroy'
+
   get 'review/review_form' => 'review#review_form'
+  
+  # comments
+  ## create
+  get 'comment/create'
+  post '/comment/create/:review_id' => 'comment#create'
+
+  ## destroy
+  get 'comment/destroy'
+  post '/comment/destroy/:comment_id' => 'comment#destroy'
 
 #모든 미용실 정보를 카드 게시판 형태로 보여주는 페이지
 
   get 'home/hairshop'  => 'home#hairshop' 
+  
+  get 'home/hairshop_each/:company_id'=> 'home#hairshop_each'
+  
+  get 'home/hairshop_each/:user_id' => 'home#hairshop_each2'
 
 #특정 미용실만 보는 페이지
-  get '/home/hairshop/:id' => 'home#hairshop_each'
+ 
 
   get 'home/mypage_user' => 'home#mypage_user'
 
   get 'home/mypage_company' => 'home#mypage_company'
-
   
   get 'home/index'
 
@@ -78,11 +116,27 @@ Rails.application.routes.draw do
 
   get '/logout' => 'home#logout'
   
- get 'home/sign_up_user'
- get 'home/sign_up_company'
+  get 'home/sign_up_user'
+
+  
+  # 업체 등록
+  
+  get 'home/company_register'
+  
+  post '/company_register' => 'home#register_company'
   
   
+  # 이메일 중복체크
+  post 'home/emailConfirm' => 'home#emailConfirm'
   
+  post 'home/signOutConfirm' => 'home#signOutConfirm'
+  
+  get 'home/sign_out' => 'home#sign_out'
+  
+  # 리뷰게시판 좋아요
+  
+
+  get 'home/test'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

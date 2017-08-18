@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customerEmail: MyString
+  companyEmail: MyString
+  type: 
+  response: 1
+
+two:
+  customerEmail: MyString
+  companyEmail: MyString
+  type: 
+  response: 1

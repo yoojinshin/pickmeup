@@ -1,4 +1,65 @@
-<h1>Home#basic_company</h1>
-<p>Find me in app/views/home/basic_company.html.erb</p>
-<a href="/home/mypage_company">마이페이지</a>
-<a href="/logout">로그아웃</a>
+
+<input hidden id="isCreated" value="<%=@isCreated%>"></input>
+
+<script>
+$(function(){
+   var isCreated = $("#isCreated").val();
+    if(isCreated == "no"){
+        swal({
+        //   background: '#fff url(/assets/pickme1.jpg)',
+          width: 500,
+          padding: 100,
+          imageWidth: 400,
+          imageHeight: 200,
+          title: '',
+          text: "<h3>업체회원이시군요!<h3><br><h5>업체등록을 하시겠습니까?<h5>",
+          type: 'info',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'GO!'
+        }).then(function () {
+            location.replace('/home/company_register');
+        });  
+    }
+});
+</script>
+
+
+<!DOCTYPE html>
+<body class="basic_image">
+<%= render partial: "tab" %>
+<div id="row3">
+
+                     <section class="intro">
+              				<p class="congra2">원하는 서비스를 선택해주세요.</p>
+
+              			 </section>
+              		<div class="container">		 
+              		  <div class="row4">
+                        <a href= "/home/request_confirm_user" >
+                        <img src='/assets/request.n.png' width="200px" height="200px" class="image">
+                        </a>
+
+                        <a href= "/review/list">
+                        <img src='/assets/Review.n.jpg' width="200px" height="200px" class="image">
+                        </a>
+
+                        <a href= "/home/hairshop">
+                        <img src='/assets/hairshop.n.png' width="200px" height="200px" class="image">
+                        </a>
+
+                        <a href= "/home/mypage_user">
+                        <img src='/assets/mypage.n.png' width="200px" height="200px" class="image">
+                        </a>
+              		  </div>
+            		</div>
+            	</div>
+          </div>  			 
+</div>    		  
+        			 
+        			 
+            
+            
+<!--<%= render partial: "footer" %>-->
+</body>

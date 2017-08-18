@@ -1,0 +1,92 @@
+<!--견적요청확인페이지(user입장)-->
+<!DOCTYPE html>
+
+<html lang="ko">
+ 
+     
+  <%= render partial: "tab" %>
+  <head>
+    <title>견적요청확인</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(function(){
+      <% @estimates.each do |t| %>
+        $("#ajax<%=t.id%>").click(function(){
+            swal({
+                title: '<i>견적</i> <u>요청서</u>',
+                type: 'info',
+                html:
+                  '<label> * 고객 이메일 : <%= t.userEmail %></label><hr>' +
+                  '<label> * 이전 시술 경험(1년 이내)</label><br>' +
+                  '<p> (1) <%= t.ago %> </p><br>' +
+                  '<p> (2) 시술 종류 : <%= t.styleAgo %></p><br>' +
+                  '<p> - 상세 내역 : <%= t.detailAgo %></p><br><hr>' +
+                  '<p> (1) 뒷모습 <br> <img src="<%= t.backURL.thumb.url %>"></p><br>' +
+                  '<p> (2) 앞모습 <br><img src="<%= t.frontURL.thumb.url %>"></p><br>' +
+                  '<p> (3) 모발 손상도<br> <img src="<%= t.damageURL.thumb.url %>"></p><br><hr>' +
+                  '<label> * 원하는 스타일</label><br>' +
+                  '<p> (1) 종류 : <%= t.style %></p>' +
+                  '<p><img src="<%= t.styleURL.thumb.url %>"</p><br>' +
+                  '<p> - 상세 내역 : <%= t.detail %></p><br><hr>' +
+                  '<label> * 선호 지역</label><br>' +
+                  '<p> <%= t.wannaGo %></p>',
+                showCancelButton: true,
+                confirmButtonText:
+                  '견적내기'
+    	      }).then(function () {
+            location.replace('/home/request_company/<%= t.id %>');
+          });
+        })
+      <%end%>
+    });
+    </script>
+  </head>
+  
+  <body class="basic_image">
+  <section id="registered_shops" class="section">
+    <header class="section_header">
+      <section class="intro">
+        <p class="joinus">Request</p>
+        <p class="congra">내가 요청한 견적을 확인할 수 있어요.</p>
+        <img src="/assets/hairshops.png">
+        <br>
+	    </section>
+    </header>
+  </section>
+     
+  <!--견적요청 카드 / card groups-->
+   <div class="container">
+     <div class="col-12">
+         <div class="row">
+          <% @estimates.each do |et| %>
+             <div class="card col-4">
+              <!--<img class="card-img-top" src="<%= et.frontURL.thumb.url %>" id="resize1">-->
+              <div class="card-block">
+                <p> 고객 이메일 : <%= et.userEmail %></p><br>
+                <h4 class="card-title">원하는 스타일 : <%= et.style %></h4>
+                <p class="card-text">이전 시술 내역 : <%= et.styleAgo %></p>
+                <!-- Trigger the modal with a button -->
+                <button type="button" id="ajax<%=et.id%>" class="btn btn-info btn-lg popbutton">자세히 보기</button>
+              </div>
+            </div>
+         <% end %>
+         </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+<!--<footer class="footer">-->
+<!--  <div class="pickmeup_logo">-->
+<!--    <img src="#" alt="">-->
+<!--    <p class="explain">-->
+<!--      여기에는 픽미업과 관련한 기본 정보 등을 담을 예정입니당-->
+<!--    </p>-->
+<!--    <p class="copyright">&copy;2017 Pickmeup. All Rights Reserved.</p>-->
+<!--  </div>-->
+<!--</footer>-->

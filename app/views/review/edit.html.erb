@@ -1,1 +1,17 @@
-#후기 게시글 수정 게시판입니다
+<!DOCTYPE html>
+<%= render partial: "tab" %>
+
+<!--후기 게시글 수정 게시판입니다-->
+
+<form action="/review/update/<%= @post.id %>" method="POST">
+    <p> 제목 </p>
+    <input type="text" name="title" value="<%= @post.title %>" >
+    <br>
+    <p> 내용 </p>
+    <input type="text" name="content" value="<%= @post.content %>">
+    <br>
+    <input type="submit" value="update">
+    
+</form>
+
+<%= render partial: "footer" %>

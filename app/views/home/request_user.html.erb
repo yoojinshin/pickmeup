@@ -1,76 +1,302 @@
 <!--견적요청(고객입장) - bootstrap 4 이용-->
+<!DOCTYPE html>
+<%= render partial: "tab" %>
+<body class="basic_image2">
+   <section class="intro">
+  	<p class="joinus">Request</p>
+  	<p class="congra">나에게 적합한 스타일링을 위한 견적 요청서입니다.</p>
+  	<img src="/assets/request1.png">
+  	<br>
+   </section>
+      
+  <!--이전 시술 경험(단일 선택=>radio button)-->
 
-<!--이전 시술 경험(단일 선택=>radio button)-->
-
-<h3>이전 시술 경험 (1년 이내)</h3><br>
-
-<form action="/request_user" method="POST" enctype="multipart/form-data">
-    <label> (1)
-        <input type="radio" name="ago" value="yes">있음</input>
-        <input type="radio" name="ago" value="no">없음</input>
-    </label>
+  <div class="row40">
+    <div id="form">
+      <script>
+        $(function(){
+          // 처음의 이전 시술 경험 적는 div 숨김
+          $("#experience").hide();
+          $("#experienceDecolourDiv").hide();
+          $("#experienceColourDiv").hide();
+          $("#experiencePermDiv").hide();
+          $("#experienceClinicDiv").hide();
+          
+          // 이전 시술 경험이 있으면 시술 경험 기술하는 div를 보여준다
+          $("#experieceYes").click(function(){
+            $("#experience").show();
+            // alert("yes clicked");
+          });
+          $("#experieceNo").click(function(){
+            $("#experience").hide();
+            // alert("no clicked");
+          });
+          
+          // 각 시술의 체크박스를 체크하면 각 시술에 대한 내용을 적을 수 있는 div를 보여준다
+          $("#experienceDecolourCheck").click(function(){
+            if($("#experienceDecolourCheck").is(":checked")){
+              $("#experienceDecolourDiv").show();
+            }else{
+              $("#experienceDecolourDiv").hide();
+            }
+          })
+          $("#experienceColourCheck").click(function(){
+            if($("#experienceColourCheck").is(":checked")){
+              $("#experienceColourDiv").show();
+            }else{
+              $("#experienceColourDiv").hide();
+            }
+          })    
+          $("#experiencePermCheck").click(function(){
+            if($("#experiencePermCheck").is(":checked")){
+              $("#experiencePermDiv").show();
+            }else{
+              $("#experiencePermDiv").hide();
+            }
+          })    
+          $("#experienceClinicCheck").click(function(){
+            if($("#experienceClinicCheck").is(":checked")){
+              $("#experienceClinicDiv").show();
+            }else{
+              $("#experienceClinicDiv").hide();
+            }
+          })
+          
+          // 각 횟수를 hidden input에 넣어주는 작업
+          $("#decolourSelect").change(function(){
+            $("#decolourTimesInput").val($(this).val());
+          });
+          $("#colourSelect").change(function(){
+            $("#colourTimesInput").val($(this).val());
+          });
+          $("#permSelect").change(function(){
+            $("#permTimesInput").val($(this).val());
+          });
+          $("#clinicSelect").change(function(){
+            $("#clinicTimesInput").val($(this).val());
+          });
+          
+        });
+  
     
-    <!--시술 종류(복수선택=>check button)-->
-
-    <label>(2) 시술 종류</label>
-    <div class="input-group">
-        <input type="checkbox" name="style_ago" value="bleach">탈색 </input>
-        <input type="text" name="detail_ago" placeholder="부가설명(횟수 등…) 최대한 자세하게 써주세용">
-    </div>
-    <div class="input-group">
-        <input type="checkbox" name="style_ago" value="color">염색 </input>
-        <input type="text" name="detail_ago" placeholder="부가설명(횟수 등…) 최대한 자세하게 써주세용">
-    </div>
-    <div class="input-group">
-        <input type="checkbox" name="style_ago" value="wave">파마 </input>
-        <input type="text" name="detail_ago" placeholder="부가설명(횟수 등…) 최대한 자세하게 써주세용">
-    </div>
-    <div class="input-group">
-        <input type="checkbox" name="style_ago" value="clinic">클리닉 </input>
-        <input type="text" name="detail_ago" placeholder="부가설명(횟수 등…) 최대한 자세하게 써주세용">
-    </div>
-    <div class="input-group">
-        <input type="checkbox" name="style_ago" value="etc">기타(헤나, 트리트먼트 등) </input>
-        <input type="text" name="detail_ago" placeholder="부가설명(횟수 등…) 최대한 자세하게 써주세용">
-    </div>
+        // function selectDelRow() {
+        // var chk = document.getElementsByName("styleAgo[]"); // 체크박스객체를 담는다
+        // var len = chk.length;    //체크박스의 전체 개수
+        // var checkRow = '';      //체크된 체크박스의 value를 담기위한 변수
+        // var checkCnt = 0;        //체크된 체크박스의 개수
+        // var checkLast = '';      //체크된 체크박스 중 마지막 체크박스의 인덱스를 담기위한 변수
+        // var rowid = '';             //체크된 체크박스의 모든 value 값을 담는다
+        // var cnt = 0;                 
+    
+        // for(var i=0; i<len; i++){
+        //     if(chk[i].checked == true){
+        //         checkCnt++;        //체크된 체크박스의 개수
+        //         checkLast = i;     //체크된 체크박스의 인덱스
+        //     }
+        // } 
+    
+        // for(var i=0; i<len; i++){
+        //     if(chk[i].checked == true){  //체크가 되어있는 값 구분
+        //         checkRow = chk[i].value;
+        //         if(checkCnt == 1){                            //체크된 체크박스의 개수가 한 개 일때,
+        //             rowid += "'"+checkRow+"'";        //'value'의 형태 (뒤에 ,(콤마)가 붙지않게)
+    
+        //         }else{                                            //체크된 체크박스의 개수가 여러 개 일때,
+        //             if(i == checkLast){                     //체크된 체크박스 중 마지막 체크박스일 때,
+        //                 rowid += "'"+checkRow+"'";  //'value'의 형태 (뒤에 ,(콤마)가 붙지않게)
+        //             }else{
+        //                 rowid += "'"+checkRow+"',";	 //'value',의 형태 (뒤에 ,(콤마)가 붙게)         			
+        //             }
+        //         }
+        //         cnt++;
+    
+        //         checkRow = '';    //checkRow초기화.
+        //     }
+    
+        //     alert(rowid);    //'value1', 'value2', 'value3' 의 형태로 출력된다.
+        // }
+      </script>
+    
      
-     <!--사진 등록
-     (https://hcn1519.github.io/articles/2016-02/carrierwave)-carrierwave 이용 aws s3에 이미지 올리기-->
-     
-    <h3>사진 등록</h3>
-    
-    <label>(1) 뒷모습</label>
-    <input type="file" name="back">
-    <label>(2) 앞모습</label>
-    <input type="file" name="front">
-    <label>(3) 모발 손상도</label>
-    <input type="file" name="damage">
-    
-    <!--원하는 스타일-->
-    
-    <h3>원하는 스타일</h3>
-    <label>종류</label>
-    <div class="input-group">
-        <input type="checkbox" name="style" value="bleach">탈색 </input>
-    </div>
-    <div class="input-group">
-        <input type="checkbox" name="style" value="color">염색 </input>
-        <input type="file" name="imageColor">
-    </div>
-    <div class="input-group">
-        <input type="checkbox" name="style" value="wave">파마 </input>
-        <input type="file" name="imageCurl">
-    </div>
-    <div class="input-group">
-        <input type="checkbox" name="style" value="clinic">클리닉 </input>
-    </div>
-    <div class="input-group">
-        <input type="checkbox" name="style" value="etc">기타(헤나, 트리트먼트 등) </input>
-        <input type="text" name="detail" placeholder="부가설명(횟수 등…) 최대한 자세하게 써주세용">
-    </div>
-    <!--선호 지역 선택 - 알바몬의 경우에는 java script로 되어있음-->
-    
-    <h3>선호 지역 선택 (최대 5개)</h3>
+      <h4>이전 시술 경험 (1년 이내)</h4><br>
+      
+      <div class="box">
+      <form action="/estimate_user" method="POST" id="견적요청폼" novalidate="novalidate" enctype="multipart/form-data">
+        <div class="box2">
+        <label> (1) 시술 경험
+          <input id="experieceNo" type="radio" name="ago" value="false" checked="TRUE">없음</input>
+          <input id="experieceYes" type="radio" name="ago" value="true">있음</input>
+        </label>
+        </div>
+      </div>
+          
+        <!--시술 종류(복수선택=>check button)-->
+        <div id="experience">
+          <div class="box2">
+            <label>시술 종류</label>
+            <!--<label for="styleAgo[]" class="error" style="display: inline;">체크 필수</label><br>-->
 
-    <input type="submit" value="제출">
-</form>
+            <input class="required error styleAgo[]1" required="required" type="checkbox" id="experienceDecolourCheck" name="styleAgo[]" value="decolour">
+            <label for="styleAgo[]1">탈색</label>
+            <input required="required" type="checkbox" id="experienceColourCheck" class= "styleAgo2" name="styleAgo[]" value="colour">
+            <label for="styleAgo[]2">염색</label>
+            <input required="required" type="checkbox" id="experiencePermCheck" class="styleAgo3" name="styleAgo[]" value="perm">
+            <label for="styleAgo[]3">파마</label>
+            <input required="required" type="checkbox" id="experienceClinicCheck" class="styleAgo4" name="styleAgo[]" value="clinic">
+            <label for="styleAgo[]4">클리닉</label>
+            <input required="required" type="checkbox" class="styleAgo5" name="styleAgo[]" value="기타 다른 항목">
+            <label for="styleAgo[]5">기타(헤나, 트리트먼트 등)</label>
+          </div>
+        </div>
+          
+          <div id="experienceDecolourDiv" style="border:solid 1px black;border-radius:20px;margin:10px;" align="center">
+            <h4>탈색</h4>
+            <h5>시술횟수</h5>
+            <select id="decolourSelect">
+              <option value="1">1회</option>
+              <option value="2">2회</option>
+              <option value="3">3회</option>
+            </select>
+            <input hidden value="1" id="decolourTimesInput" name="decolourTimesInput"></input>
+            <h5>추가 설명</h5>
+            <input id="decolourExplanation" name="decolourExplanation" type="text"></input>
+          </div>
+        
+          <div id="experienceColourDiv" style="border:solid 1px black;border-radius:20px;margin:10px;" align="center">
+            <h4>염색</h4>
+            <h5>시술횟수</h5>
+            <select id="colourSelect">
+              <option value="1">1회</option>
+              <option value="2">2회</option>
+              <option value="3">3회</option>
+            </select>
+            <input hidden value="1" id="colourTimesInput" name="colourTimesInput"></input>
+            <h5>추가 설명</h5>
+              <input id="colourExplanation" name="colourExplanation" type="text"></input>
+          </div>
+          
+          <div id="experiencePermDiv" style="border:solid 1px black;border-radius:20px;margin:10px;" align="center">
+            <h4>파마</h4>
+            <h5>시술횟수</h5>
+            <select id="permSelect">
+              <option value="1">1회</option>
+              <option value="2">2회</option>
+              <option value="3">3회</option>
+            </select>
+            <input hidden value="1" id="permTimesInput" name="permTimesInput"></input>
+            <h5>추가 설명</h5>
+              <input id="permExplanation" name="permExplanation" type="text"></input>
+          </div>
+        
+          <div id="experienceClinicDiv" style="border:solid 1px black;border-radius:20px;margin:10px;" align="center">
+            <h4>클리닉</h4>
+            <h5>시술횟수</h5>
+            <select id="clinicSelect">
+              <option value="1">1회</option>
+              <option value="2">2회</option>
+              <option value="3">3회</option>
+            </select>
+            <input hidden value="1" id="clinicTimesInput" name="clinicTimesInput"></input>
+            <h5>추가 설명</h5>
+              <input type="text" id="clinicExplanation" name="clinicExplanation" ></input>
+          </div>
+        </div>
+        <br><hr>
+         
+         <!--사진 등록
+         (https://hcn1519.github.io/articles/2016-02/carrierwave)-carrierwave 이용 aws s3에 이미지 올리기-->
+         
+        <h4>사진 등록</h4><br>
+        
+        <div class= "box">
+          <div class="box2">
+          <label>(1) 뒷모습</label>
+          <input type="file" name="back"><br>
+          <label>(2) 앞모습</label>
+          <input type="file" name="front"><br>
+          <label>(3) 모발 손상도</label>
+          <input type="file" name="damage"><br>
+          </div>
+        </div>
+        <br><hr>
+        
+        
+        <!--원하는 스타일-->
+        
+        <h4>원하는 스타일</h4>
+          <!--<br><label for="style[]" class="error" style="display: inline;">*체크 필수*</label>-->
+          <div class="box">
+          <div class="box2">
+            <input class="required error" type="checkbox" name="style[]" id="style[]1" value="커트">
+            <label for="style[]1">커트</label>
+            <input type="file" name="styleURL">
+            <input type="text" name="detail" size="20" placeholder="자세한 설명 부탁드려용" required="required"><br> 
+            <div class="box2">
+            <input required="required" type="checkbox" id="style[]2" name="style[]" value="탈색">
+            <label for="style[]2">탈색</label>
+            <input type="file" name="styleURL">
+            <input type="text" name="detail" size="20" placeholder="자세한 설명 부탁드려용" required="required"><br>
+          </div>
+          <div class="box2">
+            <input required="required" type="checkbox" id="style[]3" name="style[]" value="염색">
+            <label for="style[]3">염색</label>
+            <input type="file" name="styleURL">
+            <input type="text" name="detail" size="20" placeholder="자세한 설명 부탁드려용" required="required"><br>
+          </div>
+          <div class="box2">
+            <input required="required" type="checkbox" id="style[]4" name="style[]" value="파마">
+            <label for="style[]4">파마</label>
+            <input type="file" name="styleURL">
+            <input type="text" name="detail" size="20" placeholder="자세한 설명 부탁드려용" required="required"><br>
+          </div>
+          <div class="box2">
+            <input required="required" type="checkbox" id="style[]5" name="style[]" value="기타 다른 항목">
+            <label for="style[]5">기타(헤나 등)</label>
+            <br>
+            <div class="box3">
+            <input type="file" name="styleURL" size="10">
+            <input type="text" name="detail" size="20" placeholder="자세한 설명 부탁드려용" required="required"><br>
+            </div>          
+          </div>
+          <div class="box2">
+            <input required="required" type="checkbox" id="style[]6" name="style[]" value="클리닉">
+            <label for="style[]6">클리닉</label>
+              <input type="text" name="detail" size="20" style="text-align: right;" placeholder="자세한 설명 부탁드려용" required="required"><br>
+          </div>
+          <br>
+        </div>
+        <hr>
+        <!--선호 지역 선택 - 알바몬의 경우에는 java script로 되어있음-->
+        
+        <h4>선호 지역 선택 (최대 5개)</h4><br>
+        <input type="text" name="wannaGo" placeholder="구 단위로 써주세용" required="required" style='width:600px;'><br>
+        <input type="submit" class="btn bg px-4 py-3" value="제출" style="margin-top:20px;">
+      </form>
+    </div>
+  </div>
+  <!--<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>-->
+  <!--<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.min.js"></script>-->
+  <!--<script>-->
+  <!--  jQuery.extend(jQuery.validator.messages, {-->
+  <!--      required: "반드시 입력해야 합니다.",-->
+  <!--      remote: "수정 바랍니다.",-->
+  <!--      email: "이메일 주소를 올바로 입력하세요.",-->
+  <!--      url: "URL을 올바로 입력하세요.",-->
+  <!--      date: "날짜가 잘못 입력됐습니다.",-->
+  <!--      dateISO: "ISO 형식에 맞는 날짜로 입력하세요.",-->
+  <!--      number: "숫자만 입력하세요.",-->
+  <!--      digits: "숫자(digits)만 입력하세요.",-->
+  <!--      creditcard: "올바른 신용카드 번호를 입력하세요.",-->
+  <!--      equalTo: "값이 서로 다릅니다.",-->
+  <!--      accept: "승낙해 주세요.",-->
+  <!--      maxlength: jQuery.validator.format("{0}글자 이상은 입력할 수 없습니다."),-->
+  <!--      minlength: jQuery.validator.format("적어도 {0}글자는 입력해야 합니다."),-->
+  <!--      rangelength: jQuery.validator.format("{0}글자 이상 {1}글자 이하로 입력해 주세요."),-->
+  <!--      range: jQuery.validator.format("{0}에서 {1} 사이의 값을 입력하세요."),-->
+  <!--      max: jQuery.validator.format("{0} 이하로 입력해 주세요."),-->
+  <!--      min: jQuery.validator.format("{0} 이상으로 입력해 주세요.")-->
+  <!--  });-->
+  <!--</script>-->
+</body>
+
+<!--<%= render partial: "footer" %>-->

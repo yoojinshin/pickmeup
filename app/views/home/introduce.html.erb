@@ -1,36 +1,157 @@
-<section id = "cover">
-  <h2 class="sr-only">픽미업, 서비스 소개</h2>
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active">
-          <h4 class="carousel_title">PICKMEUP1</h4>
-          <p class="carousel_text">픽미업 소개 페이지입니다.</p>
-          <a href="/home/index" class="btn bg px-4 py-3">서비스 이용하기</a>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='https://yourwebsite.com/style.css' rel='stylesheet' type='text/css'>
+<link href='https://codepen.io/username/pen/aBcDef' rel='stylesheet' type='text/css'>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://codepen.io/username/pen/aBcDef"></script>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+
+            <script type="text/javascript">
+                $('.count').each(function () {
+                  $(this).prop('Counter',0).animate({
+                    Counter: $(this).text()
+                  }, {
+                    duration: 4000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                        }
+                    });
+                });
+            </script>
+ <style>
+body, html, .main {
+    height: 100%;
+}
+
+section10 {
+    min-height: 35%;
+}
+</style>
+</head>
+<body>
+      <section id = "cover">
+      <h2 class="sr-only">픽미업, 서비스 소개</h2>
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <h4 class="carousel_title">PICK ME UP</h4>
+              <p class="carousel_text">당신의 아름다움이 '선택'되는 순간, 픽미업과 함께하세요!</p>
+              <!--<a href="/home/index" class="btn bg px-4 py-3">서비스 이용하기</a>-->
+              <!--<a href="#section1"><img src='/assets/direct1.png' style='width:75%; height:75%; margin-top: 50px;'></a>-->
+                  <section10 id="section04" class="demo">
+                    <a href="#section1"><span></span>Scroll</a>
+                  </section10>
+            </div>
+            <div class="carousel-item">
+              <h4 class="carousel_title">PICKMEUP</h4>
+              <p class="carousel_text">당신의 아름다움이 '선택'되는 순간, 픽미업과 함께하세요!</p>
+              <!--<a href="/home/index" class="btn bg px-4 py-3">서비스 이용하기</a>-->
+              <!--<a href="#section1"><img src='/assets/direct1.png' style='width:75%; height:75%; margin-top: 50px;'></a>-->
+                  <section10 id="section04" class="demo">
+                    <a href="#section1"><span></span>Scroll</a>
+                  </section10>
+            </div>
+            <div class="carousel-item">
+              <h4 class="carousel_title">PICKMEUP</h4>
+              <p class="carousel_text">당신의 아름다움이 '선택'되는 순간, 픽미업과 함께하세요!</p>
+              <!--<a href="/home/index" class="btn bg px-4 py-3">서비스 이용하기</a>-->
+                   <section10 id="section04" class="demo">
+                    <a href="#section1"><span></span>Scroll</a>
+                  </section10>
+              <!--<a href="#section1"><img src='/assets/direct1.png' style='width:75%; height:75%; margin-top: 50px;'></a>-->
+            </div>
+          </div>
         </div>
-        <div class="carousel-item">
-          <h4 class="carousel_title">PICKMEUP2</h4>
-          <p class="carousel_text">픽미업 소개 페이지입니다.</p>
-          <a href="/home/index" class="btn bg px-4 py-3">서비스 이용하기</a>
-        </div>
-        <div class="carousel-item">
-          <h4 class="carousel_title">PICKMEUP3</h4>
-          <p class="carousel_text">픽미업 소개 페이지입니다.</p>
-          <a href="/home/index" class="btn bg px-4 py-3">서비스 이용하기</a>
-        </div>
-      </div>
-    </div>
-    
-    <!--Footer-->
-    <footer class="footer">
-      <div class="pickmeup_logo">
-        <img src="#" alt="">
-        <p class="explain">
-          여기에는 픽미업과 관련한 기본 정보 등을 담을 예정입니당
-        </p>
-        <p class="copyright">&copy;2017 Pickmeup. All Rights Reserved.</p>
-      </div>
-    </footer>
-    
+      </section>
+          
+          <div class="main" id="section1">
+            <section class="count1" >
+              <div class="count2" style="text-align:center;">
+                <p style="font-size: 18px; letter-spacing: 0.5rem; margin-left:10px; padding-left:0px;">픽미업 회원수</p>
+                <div id="numuser" style="font-size: 100px;color:#fff"><span class="count"><%= User.count %></span></div>
+               
+              </div>
+                <div style="font-size: 130px;color:#fff;"class="ya1"> <span class="colon"></span></div>
+              <div class="count3" style="text-align:center;">
+                <p style="font-size: 18px;letter-spacing: 0.2rem; margin-left:10px; padding-left:0px;">등록된 헤어샵</p>
+                <div id="numcompany" style="font-size: 100px;color:#fff"><span class="count"><%= Company.count %></span></div>
+              </div>
+                <div style="font-size: 130px;color:#fff;" class="ya1"><span class="colon"></span></div>
+              <div class="count4" style="text-align:center;">
+                 <p style="font-size: 18px;letter-spacing: 0.2rem; margin-left:10px; padding-left:0px;">견적 요청</p>
+                <div id="numrequest" style="font-size: 100px; color:#fff;"><span class="count"><%=Request .count %></span></div>
+                
+              </div>
+                <div style="font-size: 130px;color:#fff;" class="ya1"><span class="colon"></span></div>
+              <div class="count5" style="text-align:center;">
+                <p style="font-size: 18px;letter-spacing: 0.2rem; margin-left:10px; padding-left:0px;">견적 응답</p>
+                <div id="numresponse" style="text-align: center; font-size: 100px;color:#fff"><span class="count"><%= Response.count %></span></div>
+                
+              </div>
+              
+              
+            
+            <!--<a href="#section2"><img src='/assets/direct1.png' style='width:75%; height:75%;'></a>-->
+            </section>
+                  <section10 id="section04" class="demo">
+                    <a href="#section2"><span></span>Scroll</a>
+                  </section10>
+          </div>
+          <div class="main" id="section2">
+            
+            <div class="Iam">
+                 <p class="wow"><img src="/assets/logo2.png" onMouseOver="this.src='/assets/logo4.png'"onMouseOut="this.src='/assets/logo2'" border="0">
+                은 이런 서비스를 제공합니다.</p>
+                <b>
+                    <div class="innerIam">
+                        1) 고객님의 조건에 맞는 헤어스타일 견적을 내드립니다. <br /> 
+                        2) 나에게 어울리는 스타일링을 추천해드립니다.<br />
+                        3) 견적 요청 후, 바로 상담 및 예약까지 해드립니다.<br />
+                        4) 각종 후기게시판을 통해 미용 정보를 제공해드립니다.<br />
+                        "픽미업과 함께 트랜드세터가 되어보아요."<br />
+                    </div>
+                     
+                </b>
+            </div>
+          </div>
+          
+            <div class="row6">
+             <center> <a href="/home/index" class="btn bg px-4 py-3">서비스 이용하기</a></center>
+            </div>
+          
+
+<%= render partial: "footer" %>
 </body>
 </html>
+
 

@@ -1,30 +1,46 @@
-<h1>Home#hairshop_each</h1>
-<p>Find me in app/views/home/hairshop_each.html.erb</p>
+<!DOCTYPE html>
 
-#특정 미용실에 대한 정보(미용실 사진, 위치, 번호, 운영시간, 기본 가격표) 불러오기
 
-#미용실 사진
-#기본 가격표
+<body class="basic_image">
+<%= render partial: "tab" %>    
+        <section id="registered_shops" class="section">
+          <header class="section_header">
+                 <section class="intro">
+          				<p class="joinus">Hairshop</p>
 
-<div class="container">
-    <div class="row">
-        <section>
-            
+          				<img src="/assets/hairshops.png" style='margin-top:15px;'>
+          				<br>
+          				<br>
+          				 
+          				
+		         </section>
+          </header>
         </section>
-        <p>미용실 명 :<%=@user.useName%></p>
-        <p>주소 :<%=@user.address%></p>
-        <p>전화번호 :<%=@user.phoneNum%></p>
-        <p>이메일 :<%=@user.email%></p>
-        <p>개업날짜 :<%=@user.birth%></p>
-    </div>
+        
+<div class="div1">      
+<div class="container">
+        <p class="congra1"><%=@company.companyName%></p>
+        <p>대표 이미지 </p>
+        <img src='<%=@company.imageURL%>' class="resize2">
+        <p>한줄소개: <%=@company.companyIntro%></p>
+        <p>대표자명: <%=@user.userName%></p>
+        <p>주소 :<%=@company.companyAddress%></p>
+        <p>전화번호 :<%=@company.companyPhone%></p>
+        <p>이메일 :<%=@company.userEmail%></p>
+        <p>개업년도 :<%=@company.companyBirth%></p>
+<div class="flex1">
+        <p>미용실사진 </p>
+        <img src='<%=@company.storeURL%>' class="resize1">
+        <p>기본 가격표 </p>
+        <img src='<%=@company.menuURL%>' class="resize1">
 </div>
+       
+    
+</div>
+</div>
+</body>
 
-    <footer class="footer">
-      <div class="pickmeup_logo">
-        <img src="#" alt="">
-        <p class="explain">
-          여기에는 픽미업과 관련한 기본 정보 등을 담을 예정입니당
-        </p>
-        <p class="copyright">&copy;2017 Pickmeup. All Rights Reserved.</p>
-      </div>
-    </footer>
+
+
+<!--<%= render partial: "footer" %>-->
+

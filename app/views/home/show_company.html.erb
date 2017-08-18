@@ -1,0 +1,23 @@
+            <div class="modal-header">
+              <h4 class="modal-title"><strong>견적요청서</strong></h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <label> * 고객 이메일 : <%= @estimate.userEmail %></label><hr>
+                <label> * 이전 시술 경험(1년 이내)</label><br>
+                <p> (1) <%= @estimate.ago %> </p><br>
+                <p> (2) 시술 종류 : <%= @estimate.styleAgo %></p><br>
+                <p> - 상세 내역 : <%= @estimate.detailAgo %></p><br><hr>
+                <p> (1) 뒷모습 <img src="<%= @estimate.backURL %>"></p><br>
+                <p> (2) 앞모습 <img src="<%= @estimate.frontURL %>"></p><br>
+                <p> (3) 모발 손상도 <img src="<%= @estimate.damageURL %>"></p><br><hr>
+                <label> * 원하는 스타일</label><br>
+                <p> (1) 종류 : <%= @estimate.style %></p><br>
+                <p> - 상세 내역 : <%= @estimate.detail %></p><br><hr>
+                <label> * 선호 지역</label><br>
+                <p> <%= @estimate.wannaGo %></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+              <a href="javascript:window.history.back();">이전으로</a>
+            </div>

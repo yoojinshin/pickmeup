@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Cookie|Great+Vibes|Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Cookie|Great+Vibes|Niconne|Open+Sans');
+@import url('https://fonts.googleapis.com/earlyaccess/jejumyeongjo.css'); 
+@import url('https://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans|PT+Sans');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Lobster');
+@import url('https://fonts.googleapis.com/css?family=Oleo+Script');
+
 .carousel-item{
     height: 100vh;
     flex-direction: column;
@@ -11,11 +22,13 @@
     
 }
 
+
 .carousel_title{
     font-size: 9.3333333rem;
     line-height: 1.2;
-    letter-spacing: -0.08em;
+    letter-spacing: -0.05em;
     font-weight: 700;
+    font-family: 'PT Sans' !important;
     
 }
 
@@ -46,7 +59,8 @@ button: focus{
 }
 
 .carousel_text{
-    font-weight: 700;
+    font-weight: 400;
+    letter-spacing: 0.8em;
 }
 
 a.bg:focus, 
@@ -143,6 +157,9 @@ a:focus{
     text-align: center;
 }
 
+.section_header{
+    background-color: transparent !important;
+}
 
 
 .cards{
@@ -152,9 +169,16 @@ a:focus{
 }
 
 .card{
-    height: 100%;
+    height:700px;
     width:auto;
+    display: flex;
+    margin: 10px;
+    border-radius: 15px !important;
+   
 }
+
+
+
 .search{
     display: flex;
 }
@@ -195,7 +219,15 @@ a:focus{
 
 .footer{
     text-align: center;
-    background-color: #fbfbfb
+    background-color: #fbfbfb;
+    z-index: 6;
+    width:100%;
+    /*position:absolute;*/
+    bottom: 0;
+    left:0;
+    right:0;
+}
+   
 }
 
 .copyright{
@@ -225,7 +257,7 @@ input#confirmEmail{
 
 .intro2{
     width: 775px;
-    margin-left: 100px;
+   
 }
 
 p.intro2{
@@ -235,15 +267,23 @@ p.intro2{
 
 
 .joinus{
-    font-weight: 600;
-    font-size: 40px;
-     margin-top: 20px !important;
+    font-weight: 300;
+    font-size: 63px;
+    margin-top: 20px !important;
+    color: #fff;
+    font-family: 'Niconne' !important;
+   
 }
 
 
 
+
 .congra{
-    letter-spacing: 1.8px;
+    letter-spacing: 1.4px;
+    color: #fff !important;
+    font-family: 'jejumyeongjo'!important;
+    margin-top: 30px;
+    font-weight: 200;
 }
 
 .mypagedg{
@@ -255,3 +295,142 @@ p.intro2{
    
 }
 
+#logo{
+    float:right;
+    margin-top: 20px;
+    margin-right: 40px;
+}
+
+
+.basic_image{
+    background-image:linear-gradient(to bottom, rgba(255,255,255,.3)0%, rgba(255,255,255,.3)100%), url('/assets/bgimage.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: repeat;
+    z-index: 0;
+    height:auto;
+    bottom:0px;
+   
+}
+
+.basic_image2{
+    background-image:linear-gradient(to bottom, rgba(255,255,255,.3)0%, rgba(255,255,255,.3)100%), url('/assets/review_company.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: repeat;
+    z-index: 0;
+    height:150vh;
+   
+}
+
+
+.adjust{
+   text-align: center;
+   justify-content: center;
+  
+}
+
+.array{
+   
+    display: inline-block;
+}
+
+.form1{
+    margin-left:45px;
+}
+
+.flex1{
+    display: flex;
+}
+
+.pagination{
+    justify-content: center;
+    text-align: center;
+    
+    z-index: 1000 !important;
+}
+
+.next,.last,.page{
+    margin: 8px;
+    color: #fff;
+}
+
+.page.current{
+    color:#ffb6b9;
+}
+
+a.page{
+    color:#fff;
+}
+
+.fullscreen{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+}
+
+* { box-sizing: border-box; }
+.video-background {
+  background: #000;
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: -99;
+}
+.video-foreground,
+.video-background iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+ 
+}
+
+.vid-info { position: absolute; top: 0; right: 0; width: 33%; background: rgba(0,0,0,0.3); color: #fff; padding: 1rem; font-family: Avenir, Helvetica, sans-serif; }
+.vid-info h1 { font-size: 2rem; font-weight: 700; margin-top: 0; line-height: 1.2; }
+.vid-info a { display: block; color: #fff; text-decoration: none; background: rgba(0,0,0,0.5); transition: .6s background; border-bottom: none; margin: 1rem auto; text-align: center; }
+@media (min-aspect-ratio: 16/9) {
+  .video-foreground { height: 300%; top: -100%; }
+}
+@media (max-aspect-ratio: 16/9) {
+  .video-foreground { width: 300%; left: -100%; }
+}
+@media all and (max-width: 600px) {
+.vid-info { width: 50%; padding: .5rem; }
+.vid-info h1 { margin-bottom: .2rem; }
+}
+@media all and (max-width: 500px) {
+.vid-info .acronym { display: none; }
+}
+
+
+
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: red; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding-right: 25px; /* Some padding */
+    padding-left: 25px; /* Some padding */
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 10px; /* Rounded corners */
+    font-size: 35px;
+}
+
+#myBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+}

@@ -6,9 +6,9 @@ one:
   password_digest: MyString
   userName: MyString
   phoneNum: MyString
-  birth: 1
+  birth: 2017-08-04
   gender: MyString
-  address: MyText
+  address: MyString
 
 two:
   userType: MyString
@@ -16,6 +16,6 @@ two:
   password_digest: MyString
   userName: MyString
   phoneNum: MyString
-  birth: 1
+  birth: 2017-08-04
   gender: MyString
-  address: MyText
+  address: MyString

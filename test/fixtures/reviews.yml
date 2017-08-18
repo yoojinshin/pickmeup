@@ -1,11 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  type: 
   title: MyString
+  userEmail: MyString
   content: MyText
-  image_url: MyString
+  imageURL: MyString
+  hits: 1
 
 two:
+  type: 
   title: MyString
+  userEmail: MyString
   content: MyText
-  image_url: MyString
+  imageURL: MyString
+  hits: 1

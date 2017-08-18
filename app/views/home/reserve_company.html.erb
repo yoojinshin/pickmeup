@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html> 
+  <%= render partial: "tab" %>
+  
+  <head>
+    <script>
+     $(function(){
+      $("#reserveConfirm").click(function(){
+        swal({
+          title: '예약확인',
+          html: <h3>'이 요청을 예약처리하시겠습니까?'</h3><br> ,
+          type: 'info' ,
+          showCancelButton: true,
+          confirmButtonText: '확인',
+          preConfirm: function () {
+            return new Promise(function (resolve,reject) {
+              setTimeout(function() {
+                  $.ajax({
+                  method: "POST",
+                  url: "/home/reserve_company",
+                  datatype : "JSON",
+                  data: { "responseCheck" : "예약완료"},
+                  success: function(json){
+                    if (json.check){
+                      resolve()
+                    }else{
+                      reject("실패했습니다.")
+                    }
+                  }
+              	});
+          	 });
+                });
+              }, 2000)
+            })
+          },
+          allowOutsideClick: false
+        })then(function () {
+            location.replace('/home/reserve_company');
+        });  
+    });
+});
+    </script>
+  </head>
+  
+  <body class="basic_image2">
+    <div>
+      <section class="intro">
+        <p class="joinus">Reservation</p>
+        <h5 class="congra">companyName에 요청된 예약내역입니다</h5>
+        <img src="/assets/checked.png">
+        <br>
+      </section>
+      
+      <!--날짜 시간 업체이름 결과(신청완료, 업체확인중, 예약완료)-->
+      <!--결과는 신청완료가 default, 업체가 예약내역 뷰에 들어가면 업체확인중, 예약확인 버튼을 누르면 예약완료-->
+      <div class="container">
+        <div class="tbset">
+          <div id="row4">
+            <table class="table table-hover; text-center">
+              <thead>
+                <tr>
+                  <th>고객</th>
+                  <th>견적요청서</th>
+                  <th>예약가능날짜</th>
+                  <th>예약가능시간</th>
+                  <th>신청날짜</th>
+                  <th>예약상태</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <!--Reserve에서 받아올 것-->
+                <tr>
+                  <td> 허도휘 </td>
+                  <td> <a href = "#"> 애쉬그레이 염색 </a></td>
+                  <td> 2017-03-02 </td>
+                  <td> 오후 12:30 </td>
+                  <td> 2017-02-26 </td>
+                  <td> <button id="reserveConfirm" class="btn bg px-3 py-3">예약확인</button></td>
+                  <!--누르면 예약확인버튼이 block처리되고  고객예약요청 결과가 예약완료로 뜨도록.-->
+                </tr>
+              </tbody>
+            </table>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<!--날짜, 시간, 고객 견적 요청 및 업체 견적이 저장되어 업체 예약신청조회에 나오도록-->
+<!--업체가 예약신청 페이지에서 최종 확인을 하면 예약이 완료되어 고객의 예약현황에 뜬다.-->

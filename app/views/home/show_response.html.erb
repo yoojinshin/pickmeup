@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<%= render "tab" %>
+  <head>
+    <script>
+     $(function(){
+      $("#reserve").click(function(){
+        swal({
+          title: "예약신청",
+          html:   '<label> 업체 | <%= @response.companyName %></label><br>' +
+                  '<label> 예약가능일자 </label>' +
+                  '<input type="date" id="reserveDay"><br>' +
+                  '<label> 예약가능시간 </label>' +
+                  '<input type="time" id="reserveTime"><br>',
+          showCancelButton: true,
+          confirmButtonText: '예약',
+          showLoaderOnConfirm: true,
+          preConfirm: function () {
+            return new Promise(function (resolve, reject) {
+              setTimeout(function() {
+                  $.ajax({
+                  method: "POST",
+                  url: "/home/reserve_apply",
+                  datatype : "JSON",
+                  data: { "reserveDay" : $("#reserveDay").val(), 
+                          "reserveTime" : $("#reserveTime").val(), 
+                          "responseId" : <%= @response.id %>
+                  },
+                  success: function(json){
+                    if (json.check){
+                      resolve()
+                    }else{
+                      reject("실패했습니다.")
+                    }
+                  }
+                });
+              }, 2000)
+            })
+          },
+          allowOutsideClick: false
+        }).then(function() {
+          swal({
+            type: 'success',  
+            text: '예약신청이 완료되었습니다',
+            showCancelButton: true,
+            confirmButtonText: '확인',
+            cancelButtonText: '취소' ,
+          }).then(function(){
+        });
+        });
+      });
+    });
+    </script>
+  </head>
+  
+  <body class="basic_image2">
+      <div class="container">
+          <div class="row">
+         <section class="intro">
+        	<p class="joinus">Response</p>
+        	<p class="congra">내가 받은 견적을 확인해보세요.</p>
+        	<img src="/assets/checked.png">
+        	<br>
+         </section>
+  
+          <div class="row41">
+                  <label>* 업체 이름 : <%= @response.companyName %> </label>
+                  <hr>
+                  <label>* 견적 내용 : </label><br>
+                  <p> <%= @response.content %></p>
+                  <hr>
+                  <center>
+                      <button id="reserve" class="btn bg px-3 py-3">예약하기</button>
+                      <a href="/home/request_confirm_user" class="btn bg px-3 py-3">이전 페이지로</a>
+                  </center>
+                  </div>
+          </div>
+      </div>
+  </body>
+</html>

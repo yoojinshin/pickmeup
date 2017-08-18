@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html> 
+  <%= render partial: "tab" %>
+  
+  <body class="basic_image2">
+    <div>
+      <section class="intro">
+        <p class="joinus">Reservation</p>
+        <h5 class="congra"><%= @user.userName %>님의 예약 내역은 다음과 같습니다</h5>
+        <img src="/assets/checked.png">
+        <br>
+      </section>
+      
+      <!--날짜 시간 업체이름 결과(신청완료, 업체확인중, 예약완료)-->
+      <!--결과는 신청완료가 default, 업체가 예약내역 뷰에 들어가면 업체확인중, 예약확인 버튼을 누르면 예약완료-->
+      <div class="container">
+        <div class="tbset">
+          <div id="row4">
+            <table class="table table-hover; text-center">
+              <thead>
+                <tr>
+                  <th>업체</th>
+                  <th>견적</th>
+                  <th>예약가능날짜</th>
+                  <th>예약가능시간</th>
+                  <th>신청날짜</th>
+                  <th>예약상태</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <!--Reserve에서 받아올 것-->
+                <% @reservations.each do |r| %>
+                  <tr>
+                    <td> pickmeup </td>
+                    <td> <a href = "home/show_response/<%= response_id %>">견적확인  </a></td>
+                    <td> <%= r.reserveDay %> </td>
+                    <td> <%= r.reserveTime %> </td>
+                    <td> <%= r.created_at.strftime("%Y/%m/%d") %> </td>
+                    <td> <%= r.reserveCheck %> </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<!--날짜, 시간, 고객 견적 요청 및 업체 견적이 저장되어 업체 예약신청조회에 나오도록-->
+<!--업체가 예약신청 페이지에서 최종 확인을 하면 예약이 완료되어 고객의 예약현황에 뜬다.-->

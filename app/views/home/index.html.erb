@@ -1,99 +1,36 @@
 <!DOCTYPE html>
 <html>
-                <head>
-                        <style>
-                        body {
-                            font-family: "Lato", sans-serif;
-                        }
-                        
-                        .sidenav {
-                            height: 100%;
-                            width: 0;
-                            position: fixed;
-                            z-index: 1;
-                            top: 0;
-                            left: 0;
-                            background-color: #111;
-                            overflow-x: hidden;
-                            transition: 0.5s;
-                            padding-top: 60px;
-                        }
-                        
-                        .sidenav a {
-                            padding: 8px 8px 8px 32px;
-                            text-decoration: none;
-                            font-size: 20px;
-                            color: #818181;
-                            display: block;
-                            transition: 0.3s;
-                        }
-                        
-                        .sidenav a:hover, .offcanvas a:focus{
-                            color: #f1f1f1;
-                        }
-                        
-                        .sidenav .closebtn {
-                            position: absolute;
-                            top: 0;
-                            right: 25px;
-                            font-size: 36px;
-                            margin-left: 50px;
-                        }
-                        
-                        @media screen and (max-height: 450px) {
-                          .sidenav {padding-top: 15px;}
-                          .sidenav a {font-size: 18px;}
-                        }
-                        </style>
-                </head>
-                <body>
-                        <div id="mySidenav" class="sidenav">
-                          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                          <a href="/home/request_user">견적 요청</a>
-                          <a href="/review/list">후기 Talk</a>
-                          <a href="/home/hairshop">Hairshop</a>
-                          <a href="#">마이페이지</a>
-                        </div>
-                        
-                        <span style="font-size:60px;cursor:pointer" class="side_nav" onclick="openNav()">&#9776;</span>
-                        
-                        <script>
-                        function openNav() {
-                            document.getElementById("mySidenav").style.width = "250px";
-                        }
-                        
-                        function closeNav() {
-                            document.getElementById("mySidenav").style.width = "0";
-                        }
-                        </script>
-                </body>
-</html> 
 
 
-
-
-            <section class="intro">
-				<p class="joinus"> Login </p>
-				<p class="congra2">로그인하기</p>
-				<img src='/assets/key-tool.png'>
-				<br>
-			</section>
-
-<div class="container">
+<body class="basic_image">
+  <div class="container2"> 
+    <div id="row3">
+      <section class="intro">
+          <p class="joinus1"> Login </p>
+          <p class="congra2">로그인하기</p>
+          <img src='/assets/key-tool.png'>
+          <hr width="85%";>
+      </section>
+  
+    <div class="container">
         <div class="row">
-                <div class="controller" style='margin-top:-200px;'>
-                        <form action="/home/login" method="POST">
-                                <input type="text" name="email" placeholder="email"></input>
-                                <input type="password" name="password" placeholder="password"></input>
-                                <button type="submit" class="btn btn-primary">로그인</button>
-                        </form>
-                        <div class="interval">
-                                <a href="/home/register_intro"><button class="btn btn-primary">회원가입</button></a>
-                                <a href="/home/congratulations_register"><button class="btn btn-primary">로그인 없이 이용할래요</button></a>
-                        </div>
-                </div>
+            <div class="controller" style='margin-top:-500px;'>
+              <form action="/home/login" method="POST">
+                <input type="text" name="email" placeholder="email"></input>
+                <input type="password" name="password" placeholder="password"></input>
+                <button type="submit" class="btn btn-primary">로그인</button>
+              </form>
+            </div>
+            <div class="interval">
+              <a href="/home/sign_up_user"><button class="btn btn-primary">회원가입</button></a>
+              <a href="/home/basic_user"><button class="btn btn-primary">로그인 없이 이용할래요</button></a>
+            </div>
         </div>
-</div
+    </div>
+    </div>
+  </div>
+
+</body>
 
 <!--로그인 두가지 방법-->
 <!--1. 직접 구현한다-->
@@ -117,12 +54,6 @@
 <!--https://developers.facebook.com/docs/facebook-login/web-->
 <!--카카오톡과 같이 자바스크립트를 이용하면 될 것 같습니다.-->
 
-        <footer class="footer">
-              <div class="pickmeup_logo">
-                <img src="#" alt="">
-                <p class="explain">
-                  여기에는 픽미업과 관련한 기본 정보 등을 담을 예정입니당
-                </p>
-                <p class="copyright">&copy;2017 Pickmeup. All Rights Reserved.</p>
-              </div>
-       </footer>
+
+</html>
+

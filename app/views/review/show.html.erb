@@ -1,1 +1,71 @@
-#후기 게시글 확인 창
+<!DOCTYPE html>
+<%= render partial: "tab" %>
+
+  <!--후기 게시글 확인 창-->
+  <body class="basic_image">  
+    <section class="intro">
+      <p class="joinus"> Review </p>
+        <img src='/assets/key-tool.png'>
+        <br>
+    </section>
+    <div class="container">
+      <div id="row8">
+
+        <div class="title1">
+          <p> | <%= @post.reviewType %> | </p>  
+          <h4> <%= @post.title %> </h4>
+          <br>
+          <div>
+          <p> <%= @post.created_at.strftime("%Y/%m/%d") %> </p>
+          <p style="text-align: right;"> 작성자 : <%= @post.userEmail %></p>
+          </div>
+        </div>
+        
+        
+        <div>
+        <hr>
+        <img src="<%= @post.imageURL.thumb.url %>" width: "100px"; height: "100px">
+        <p style="text-align: left;"> <%= @post.content %> </p>
+       
+        </div>
+        <hr>
+
+        <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDI2Ny82ODIy">
+          	<script type="text/javascript">
+             (function(d, s) {
+                 var j, e = d.getElementsByTagName(s)[0];
+          
+                 if (typeof LivereTower === 'function') { return; }
+          
+                 j = d.createElement(s);
+                 j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                 j.async = true;
+          
+                 e.parentNode.insertBefore(j, e);
+             })(document, 'script');
+          	</script>
+        </div>
+<!-- 시티 설치 코드 끝 -->
+
+        <!--댓그르 기능-->
+        <!--<form action = "/comment/create/<%= @post.id %>" method="POST">-->
+        <!--    <input type="text" name="input_comment">-->
+        <!--    <input type="submit" value="comment">-->
+        <!--</form>-->
+      
+        <!--<% @comments.each do |c| %>-->
+        <!--  <p>-->
+        <!--    <%= c.userEmail %> | <%= c.body %> | <%= c.created_at.strftime("%Y/%m/%d") %> <a href='/comment/destroy/<%=c.id%>' data-method='post' data-confirm='댓글을 삭제합니다.'> [X] </a> </td>-->
+        <!--  </p>-->
+        <!--<% end %>-->
+        
+        <!--좋아요 기능-->
+      
+        <a href = "/review/list"><button class="btn btn-primary"> 목록으로 </a>
+        <a href = "/review/edit/<%= @post.id %>" data-confirm="진짜로 수정하시겠어요?"><button class="btn btn-primary"> 수정하기 </a>
+        <a href = "/review/destroy/<%= @post.id %>" data-confirm="진짜로 삭제하시겠어요?" data-method="POST"> <button class="btn btn-primary">삭제하기 </a>
+      </div>
+    </div>
+  </body>
+
+<!--<%= render partial: "footer" %>-->

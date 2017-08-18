@@ -1,82 +1,59 @@
- <!DOCTYPE html>
-<html>
-                <head>
-                        <style>
-                        body {
-                            font-family: "Lato", sans-serif;
-                        }
-                        
-                        .sidenav {
-                            height: 100%;
-                            width: 0;
-                            position: fixed;
-                            z-index: 1;
-                            top: 0;
-                            left: 0;
-                            background-color: #111;
-                            overflow-x: hidden;
-                            transition: 0.5s;
-                            padding-top: 60px;
-                        }
-                        
-                        .sidenav a {
-                            padding: 8px 8px 8px 32px;
-                            text-decoration: none;
-                            font-size: 20px;
-                            color: #818181;
-                            display: block;
-                            transition: 0.3s;
-                        }
-                        
-                        .sidenav a:hover, .offcanvas a:focus{
-                            color: #f1f1f1;
-                        }
-                        
-                        .sidenav .closebtn {
-                            position: absolute;
-                            top: 0;
-                            right: 25px;
-                            font-size: 36px;
-                            margin-left: 50px;
-                        }
-                        
-                        @media screen and (max-height: 450px) {
-                          .sidenav {padding-top: 15px;}
-                          .sidenav a {font-size: 18px;}
-                        }
-                        </style>
-                </head>
-                <body>
-                        <div id="mySidenav" class="sidenav">
-                          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                          <a href="/home/request_user">견적 요청</a>
-                          <a href="/review/list">후기 Talk</a>
-                          <a href="/home/hairshop">Hairshop</a>
-                          <a href="#">마이페이지</a>
-                        </div>
-                        
-                        <span style="font-size:60px;cursor:pointer" class="side_nav" onclick="openNav()">&#9776;</span>
-                        
-                        <script>
-                        function openNav() {
-                            document.getElementById("mySidenav").style.width = "250px";
-                        }
-                        
-                        function closeNav() {
-                            document.getElementById("mySidenav").style.width = "0";
-                        }
-                        </script>
-                </body>
-                <section class="intro">
-          				<p class="joinus">My page</p>
-          				<p class="congra">마이페이지</p>
-          				<img src="/assets/mypage.png">
-          				<br>
-		         </section>
-                
-                
-                
-                
+  <!DOCTYPE html>
+<head>
+  <script>
+  $(function(){
+    $("#sign_out").click(function(){
+      swal({
+        title: "탈퇴하시려면 <br>비밀번호를 입력해주세요.",
+        input: 'password',
+        showCancelButton: true,
+        confirmButtonText: '탈퇴',
+        showLoaderOnConfirm: true,
+        preConfirm: function (password) {
+          return new Promise(function (resolve, reject) {
+            setTimeout(function() {
+                $.ajax({
+                method: "POST",
+                url: "/home/signOutConfirm",
+                datatype : "JSON",
+                data: {"password" : password},
+        	      success : function(json) {
+            		  if (json.check){
+            		    resolve()
+            		  }else{
+          		      reject('비밀번호가 틀립니다.')
+            		  }
+        	      }
+              });
+            }, 2000)
+          })
+        },
+        allowOutsideClick: false
+      }).then(function () {
+        swal({
+          type: 'success',
+          title: '안녕..',
+          html: '다시만날 날을 기약하며...',
+        }).then(function(){
+           window.location.replace('/home/sign_out');
+        })
+      });
+    });
+  });
+  </script>
+</head>
+  
+  <%= render partial: "tab" %>
+<body class="basic_image">
+  
+  <section class="intro">
+    <p class="joinus">My page</p>
+    <p class="congra">마이페이지</p>
+    <img src="/assets/mypage.png">
+    <br>
+  </section>
+
+<div class="rowc">
 <div class="container">
     <div class="mypagedg">
         <p>* 이메일: <%=@user.email%></p>
@@ -87,16 +64,9 @@
         <p>* 주소 :<%=@user.address%></p>
     </div>
 </div>
+</div>
+<button id="sign_out" class="btn btn-default">탈퇴</button>
 
-     <footer class="footer">
-      <div class="pickmeup_logo">
-        <img src="#" alt="">
-        <p class="explain">
-          여기에는 픽미업과 관련한 기본 정보 등을 담을 예정입니당
-        </p>
-        <p class="copyright">&copy;2017 Pickmeup. All Rights Reserved.</p>
-      </div>
-    </footer>
-    
+<%= render partial: "footer" %>
+</body>   
 </html>
-    
