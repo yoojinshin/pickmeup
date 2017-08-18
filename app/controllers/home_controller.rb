@@ -217,7 +217,9 @@ class HomeController < ApplicationController
   
   def reserve_company
     @user = User.where(:email => session[:email]).first
-    @reservation = Reserve.where(:companyEmail => session[:email])  end
+    @reservation = Reserve.where(:companyEmail => session[:email])
+    # @reservation.reserveCheck = params[:reserveCheck]
+  end
   
   def reserve_confirm
     @reservation = Reserve.where(:id => params[:id])
