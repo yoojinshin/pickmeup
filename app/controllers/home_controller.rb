@@ -197,9 +197,6 @@ class HomeController < ApplicationController
 # 예약을 위한 액션
 
   def reserve_apply
-    reserveCheck= {
-      :check => true
-    }
     @reservation = Reserve.new
     @reservation.customerEmail = session[:email]
     @reservation.reserveDay = params[:reserveDay]
@@ -207,6 +204,9 @@ class HomeController < ApplicationController
     @reservation.reserveCheck = "신청완료"
     @reservation.response_id = params[:responseId]
     @reservation.save
+    reserveCheck= {
+      :check => true
+    }
     render json: reserveCheck
   end
   

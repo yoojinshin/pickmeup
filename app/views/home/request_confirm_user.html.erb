@@ -26,15 +26,7 @@
                   <% else %>
                   '없습니다!'
                   <% end %>
-                  + '</h3><br>' +
-                  <% aryStyle = t.styleAgo %>
-                  <% ary = t.detailAgo%>
-                  <% ary.each do |a| %>
-                  <%= "시술종류 : #{a[0]}+" %>
-                  <%= "시술횟수 : #{a[1]}+" %>
-                  <%= "상세내용 : #{a[2]}+" %>
-                  <% end %>
-                  '<p> (2) 시술 종류 : <%= t.styleAgo %></p><br>' +
+                  + '<p> (2) 시술 종류 : <%= t.styleAgo %></p><br>' +
                   '<p> - 상세 내역 : <%= t.detailAgo %></p><br><hr>' +
                   '<p> (1) 뒷모습 <br><img src="<%= t.backURL.thumb.url %>"></p><br>' +
                   '<p> (2) 앞모습 <br><img src="<%= t.frontURL.thumb.url %>"></p><br>' +

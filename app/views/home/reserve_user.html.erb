@@ -7,6 +7,7 @@
       <section class="intro">
         <p class="joinus">Reservation</p>
         <h5 class="congra"><%= @user.userName %>님의 예약 내역은 다음과 같습니다</h5>
+        <br>
         <img src="/assets/checked.png">
         <br>
       </section>
@@ -33,7 +34,7 @@
                 <% @reservations.each do |r| %>
                   <tr>
                     <td> pickmeup </td>
-                    <td> <a href = "home/show_response/<%= response_id %>">견적확인  </a></td>
+                    <td> <a href = "home/show_response/<%= response_id %>"> 견적확인 </a></td>
                     <td> <%= r.reserveDay %> </td>
                     <td> <%= r.reserveTime %> </td>
                     <td> <%= r.created_at.strftime("%Y/%m/%d") %> </td>

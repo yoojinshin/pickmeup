@@ -56,16 +56,21 @@
 <div class="rowc">
 <div class="container">
     <div class="mypagedg">
+      <div class="box">
+      <div class="box2">
         <p>* 이메일: <%=@user.email%></p>
         <p>* 이름 : <%=@user.userName%></p>
         <p>* 전화번호 : <%=@user.phoneNum%></p>
         <p>* 나이 : <%=@user.birth%></p>
         <p>* 성별 : <%=@user.gender%></p>
         <p>* 주소 :<%=@user.address%></p>
+      </div>
+      <button id="sign_out" class="btn btn-default">탈퇴</button>
+      </div>
     </div>
 </div>
 </div>
-<button id="sign_out" class="btn btn-default">탈퇴</button>
+
 
 <%= render partial: "footer" %>
 </body>   
